@@ -1,10 +1,9 @@
 import { Music2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="min-h-[90vh] flex items-center justify-center bg-gradient-hero text-primary-foreground relative overflow-hidden">
@@ -27,7 +26,7 @@ export const Hero = () => {
           <Button
             size="lg"
             variant="secondary"
-            onClick={() => scrollToSection("dashboard")}
+            onClick={() => navigate("/dashboard")}
             className="text-lg"
           >
             View Statistics
@@ -35,7 +34,7 @@ export const Hero = () => {
           <Button
             size="lg"
             variant="outline"
-            onClick={() => scrollToSection("search")}
+            onClick={() => navigate("/search")}
             className="text-lg bg-white/10 hover:bg-white/20 border-white/30"
           >
             Search Bandishes
