@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Search as SearchIcon, Music2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -23,6 +24,7 @@ const bandishData = [
 ];
 
 const Search = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRaag, setSelectedRaag] = useState("all");
   const [selectedTaal, setSelectedTaal] = useState("all");
@@ -120,7 +122,11 @@ const Search = () => {
                       <span className="font-medium">{bandish.composer}</span>
                     </div>
                   </div>
-                  <Button className="w-full mt-4" variant="outline">
+                  <Button 
+                    className="w-full mt-4" 
+                    variant="outline"
+                    onClick={() => navigate(`/composition/${bandish.id}`)}
+                  >
                     View Details
                   </Button>
                 </CardContent>
